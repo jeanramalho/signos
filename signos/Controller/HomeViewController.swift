@@ -1,5 +1,5 @@
 //
-//  SignosSplashScreenViewController.swift
+//  HomeViewController.swift
 //  signos
 //
 //  Created by Jean Ramalho on 13/02/25.
@@ -7,14 +7,12 @@
 import Foundation
 import UIKit
 
-class SignosSplashScreenViewController: UIViewController {
+class HomeViewController: UIViewController {
     
-    let contentView: SignosSplashView
-    let coordinator: SignosCoordinatorProtocol?
+    let contentView: HomeView
     
-    init(contentView: SignosSplashView, coordinator: SignosCoordinatorProtocol) {
+    init(contentView: HomeView) {
         self.contentView = contentView
-        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -24,22 +22,20 @@ class SignosSplashScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setup()
-        startTimer()
     }
     
-    private func setup() {
-    
+    private func setup(){
+        
         setHierarchy()
-        setContrainsts()
+        setConstraints()
     }
     
     private func setHierarchy(){
-        self.view.addSubview(contentView)
+        view.addSubview(contentView)
     }
     
-    private func setContrainsts(){
+    private func setConstraints(){
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -48,11 +44,5 @@ class SignosSplashScreenViewController: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-    }
-    
-    private func startTimer(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
-            self?.coordinator?.showHomeView()
-        }
     }
 }

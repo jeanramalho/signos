@@ -7,7 +7,7 @@
 import Foundation
 import UIKit
 
-class SignosFlowController {
+class SignosFlowController: SignosCoordinatorProtocol {
     
     private var navigationController: UINavigationController?
     
@@ -19,10 +19,20 @@ class SignosFlowController {
         
         let contentView = SignosSplashView()
         
-        let startViewController = SignosSplashScreenViewController(contentView: contentView)
+        let startViewController = SignosSplashScreenViewController(contentView: contentView, coordinator: self)
         
         self.navigationController = UINavigationController(rootViewController: startViewController)
         
         return navigationController ?? UINavigationController()
     }
+    
+    func showHomeView(){
+        let contentView = HomeView()
+        
+        let homeView = HomeViewController(contentView: contentView)
+        
+        self.navigationController?.setViewControllers([homeView], animated: true)
+    }
 }
+
+
