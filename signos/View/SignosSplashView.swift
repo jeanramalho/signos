@@ -9,7 +9,13 @@ import UIKit
 
 class SignosSplashView: UIView {
     
-    
+    lazy var logoImageView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "logo")
+        image.contentMode = .scaleToFill
+        return image
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,16 +28,21 @@ class SignosSplashView: UIView {
     }
     
     private func setupUI(){
-        self.backgroundColor = .blue
+        self.backgroundColor = .lightGray
+        
         setHierarchy()
         setConstraints()
     }
     
     private func setHierarchy(){
-        
+        addSubview(logoImageView)
     }
     
     private func setConstraints(){
-        
+        NSLayoutConstraint.activate([
+            logoImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            logoImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+
+        ])
     }
 }
