@@ -9,6 +9,21 @@ import UIKit
 
 class HomeView: UIView {
     
+    lazy var logoImageView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "logo")
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
+    
+    lazy var signosTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(SignosTableViewCell.self, forCellReuseIdentifier: SignosTableViewCell.identifier)
+        return tableView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -20,8 +35,7 @@ class HomeView: UIView {
     }
     
     private func setupUI(){
-        
-        backgroundColor = .green
+
         setHierarchy()
         setConstraints()
     }
