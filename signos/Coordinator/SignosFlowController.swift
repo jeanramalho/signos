@@ -17,6 +17,8 @@ class SignosFlowController: SignosCoordinatorProtocol {
     
     func start() -> UINavigationController {
         
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
         let contentView = SignosSplashView()
         
         let startViewController = SignosSplashScreenViewController(contentView: contentView, coordinator: self)
