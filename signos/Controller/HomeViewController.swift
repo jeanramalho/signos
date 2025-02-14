@@ -26,6 +26,18 @@ class HomeViewController: UIViewController {
     }
     
     private func setup(){
+        self.title = "Minha Tela"
+            navigationController?.navigationBar.prefersLargeTitles = true
+            
+            // Personalizando cor de fundo e texto
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.backgroundColor = .red
+            navigationController?.navigationBar.barTintColor = .systemBlue
+            navigationController?.navigationBar.tintColor = .white
+            navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+            
+            // Adicionando botão na NavigationBar
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Ação", style: .plain, target: self, action: #selector(botaoClicado))
         
         setHierarchy()
         setConstraints()
@@ -44,5 +56,10 @@ class HomeViewController: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    
+    @objc private func botaoClicado() {
+        print("Botão pressionado!")
     }
 }
