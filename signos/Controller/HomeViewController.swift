@@ -27,6 +27,9 @@ class HomeViewController: UIViewController {
     }
     
     private func setup(){
+        
+        contentView.signosTableView.delegate = self
+        contentView.signosTableView.dataSource = self
 
         setHierarchy()
         setConstraints()
@@ -51,4 +54,17 @@ class HomeViewController: UIViewController {
     @objc private func botaoClicado() {
         print("Botão pressionado!")
     }
+}
+
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    
 }
