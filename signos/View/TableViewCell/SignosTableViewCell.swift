@@ -12,7 +12,6 @@ class SignosTableViewCell: UITableViewCell {
     lazy var signoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Signos"
         label.font = UIFont.boldSystemFont(ofSize: 24)
         return label
     }()

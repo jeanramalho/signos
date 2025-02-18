@@ -93,12 +93,12 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return signos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SignosTableViewCell.identifier, for: indexPath) as? SignosTableViewCell else {return UITableViewCell()}
-        
+        cell.signoLabel.text = signos[indexPath.row]
         
         return cell
     }
