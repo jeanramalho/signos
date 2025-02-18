@@ -103,5 +103,19 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let alertSignificadoSignos = UIAlertController(title: "Significado do signo:", message: significadoSignos[indexPath.row], preferredStyle: .alert)
+        let buttonAlertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        
+        alertSignificadoSignos.addAction(buttonAlertAction)
+        
+        present(alertSignificadoSignos, animated: true, completion: nil)
+        
+        
+    }
+    
     
 }
