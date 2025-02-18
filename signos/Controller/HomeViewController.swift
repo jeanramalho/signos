@@ -10,6 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     var signos: [String] = []
+    var significadoSignos: [String] = []
     let contentView: HomeView
     
     init(contentView: HomeView) {
@@ -32,6 +33,7 @@ class HomeViewController: UIViewController {
         contentView.signosTableView.dataSource = self
         
         populaArraySignos()
+        populaSignificadosSignos()
 
         setHierarchy()
         setConstraints()
@@ -61,10 +63,25 @@ class HomeViewController: UIViewController {
         signos.append("Virgem")
         signos.append("Líbra")
         signos.append("Escorpião")
-        signos.append("Sargitário")
+        signos.append("Sagitário")
         signos.append("Capricórnio")
         signos.append("Aquário")
         signos.append("Peixes")
+    }
+    
+    private func populaSignificadosSignos(){
+        significadoSignos.append("Áries – Determinado e impulsivo, sempre busca desafios e lidera com coragem.")
+        significadoSignos.append("Touro – Prático e teimoso, valoriza segurança, conforto e prazeres sensoriais.")
+        significadoSignos.append("Gêmeos – Comunicativo e curioso, adora aprender, socializar e se adaptar a mudanças.")
+        significadoSignos.append("Câncer – Sensível e protetor, age com emoção e tem forte conexão com o lar e a família.")
+        significadoSignos.append("Leão – Carismático e confiante, gosta de brilhar, liderar e ser reconhecido.")
+        significadoSignos.append("Virgem – Detalhista e analítico, busca a perfeição e gosta de ajudar com eficiência.")
+        significadoSignos.append("Libra – Diplomático e equilibrado, valoriza harmonia, beleza e boas relações.")
+        significadoSignos.append("Escorpião – Intenso e misterioso, sente tudo profundamente e busca transformações.")
+        significadoSignos.append("Sagitário – Aventureiro e otimista, ama a liberdade, o conhecimento e novas experiências.")
+        significadoSignos.append("Capricórnio – Ambicioso e disciplinado, trabalha duro para alcançar seus objetivos.")
+        significadoSignos.append("Aquário – Independente e visionário, pensa à frente do tempo e valoriza a originalidade.")
+        significadoSignos.append("Peixes – Sonhador e empático, tem uma conexão profunda com as emoções e o mundo espiritual.")
     }
     
     
