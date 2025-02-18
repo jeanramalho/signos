@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    
+    var signos: [String] = []
     let contentView: HomeView
     
     init(contentView: HomeView) {
@@ -30,6 +30,8 @@ class HomeViewController: UIViewController {
         
         contentView.signosTableView.delegate = self
         contentView.signosTableView.dataSource = self
+        
+        populaArraySignos()
 
         setHierarchy()
         setConstraints()
@@ -48,6 +50,21 @@ class HomeViewController: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    private func populaArraySignos(){
+        signos.append("Áries")
+        signos.append("Touro")
+        signos.append("Gêmeos")
+        signos.append("Cáncer")
+        signos.append("Leão")
+        signos.append("Virgem")
+        signos.append("Líbra")
+        signos.append("Escorpião")
+        signos.append("Sargitário")
+        signos.append("Capricórnio")
+        signos.append("Aquário")
+        signos.append("Peixes")
     }
     
     
